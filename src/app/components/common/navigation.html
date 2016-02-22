@@ -1,0 +1,84 @@
+<nav class="navbar-deiconult navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav cling-me-side-bar hide-menu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element" dropdown ng-controller="getAvatar">
+                    <div class="img-circle avatar-navigation" ng-style="{'background-image': 'url('+avatar+')'}"></div>
+                    <a class="dropdown-toggle" dropdown-toggle href>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{userName}}</strong>
+                             </span>
+                    </a>
+                </div>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.dashboard">
+                    <i class="icon icon-thumnail"></i>
+                    <span class="nav-label">{{'Dashboard'|translate}}</span>
+                </a>
+            </li>
+            <li ui-sref-active="active" ng-controller="getAvatar">
+                <a ui-sref="index.userreview" ng-if="notificationCount != 0">
+                    <i class="icon icon-review"></i>
+                    <span class="nav-label">{{'User review'|translate}}</span>
+                    <span class="label label-danger pull-right">{{notificationCount}}</span>
+                </a>
+                <a ui-sref="index.userreview" ng-if="notificationCount == 0">
+                    <i class="icon icon-review"></i>
+                    <span class="nav-label">{{'User review'|translate}}</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.customerinfo">
+                    <i class="icon icon-friend"></i>
+                    <span class="nav-label">{{'Customer Info'|translate}}</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.deal">
+                    <i class="icon icon-deals"></i>
+                    <span class="nav-label">{{'Deal Manager'|translate}}</span>
+                    <span class="icon arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li ui-sref-active="active"><a ui-sref="index.deal.dealTraffic">{{'Deal Traffic'|translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="index.deal.dealList">{{'Deal List'|translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="index.deal.createDeal">{{'Create Deal'|translate}}</a></li>
+                </ul>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.place">
+                    <i class="icon icon-places"></i>
+                    <span class="nav-label">{{'Place Manager'|translate}}</span><span class="icon arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li ui-sref-active="active"><a ui-sref="index.place.placeTraffic">{{'Place Traffic'|translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="index.place.placeList">{{'Place List'|translate}}</a>
+                    </li>
+                    <li ui-sref-active="active"><a ui-sref="index.place.createPlace">{{'Create Place'|translate}}</a></li>
+                </ul>
+            </li>
+            
+            <li ui-sref-active="active">
+                <a ui-sref="index.salesAnalysis">
+                    <i class="icon icon-group"></i>
+                    <span class="nav-label">{{'Sales Analysis'|translate}}</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.invoice">
+                    <i class="icon icon-term"></i>
+                    <span class="nav-label">{{'Transaction history'|translate}}</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.account">
+                    <i class="icon icon-account"></i>
+                    <span class="nav-label">{{'Account'|translate}}</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

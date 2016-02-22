@@ -1,0 +1,28 @@
+<script src="https://www.google.com/recaptcha/api.js?hl=vi"></script>
+<div class="search_page" ng-init="reloginAfterResetPass()">
+	<div class="login-form">
+		<div class="big_logo" ng-click="returnHomepage()"></div>
+		<div class="register-hint">
+			<h3>WELCOME TO CLINGME</h3>
+			<h5>{{'Block message login'|translate}}</h5>
+		</div>
+		<div class="form_content">
+		<form role="form" name="login_form" novalidate action="?">
+			<input class="textfield_form_submit" type="text" ng-model="email" name="email" placeholder="Email / {{'Phone number'|translate}}"  validatetype="emailphone"  ng-keypress="$event.which === 13 && login()" required/>
+			<div class="m-t-xs" ng-show="login_form.email.$invalid && login_form.submitted">
+                <small ng-show="login_form.email.$error" style="color: white;">{{'Please input email or phone number'|translate}}</small>
+            </div>
+			<input class="textfield_form_submit password-login" type="password" ng-model="password" name="password" placeholder="{{'Password'|translate}}" ng-keypress="$event.which === 13 && login()" required/>
+			<div class="m-t-xs" ng-show="login_form.password.$invalid && login_form.submitted">
+                <small ng-show="login_form.password.$error" style="color:white;">{{'Please input your password'|translate}}</small>
+            </div>
+            <div class="showCapcha hidden">
+            	<!-- <div class="g-recaptcha" data-sitekey="6LdUahQTAAAAAM_rr9-f8IyUNkoBreza4nNYXG_T"></div> -->
+            	<div class="g-recaptcha" data-sitekey="6Ld9DxYTAAAAAKRdfMRK8DhZIzgbeS_fN5nxy2O5"></div>
+            </div>
+			<input class="btn_login" type="button" value="{{'Login'|translate}}" ng-click="login()"/>
+			<div class="forgot-pass-link"><a ui-sref="homepage.forgotpass">{{'Forgot password'|translate}}?</a></div>
+		</form>
+		</div>
+	</div>
+</div>

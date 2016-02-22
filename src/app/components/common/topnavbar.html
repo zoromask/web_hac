@@ -1,0 +1,124 @@
+<div class="row border-bottom" ng-controller="NotificationTopnavbarController">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header" width-top-form-search>
+            <span minimaliza-sidebar></span>
+            <form role="search" class="navbar-form-custom" ng-submit="searchDealPlace()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" ng-model="localSearch" ng-change="changeText()" placeholder="{{'Search deal, place'|translate}}" class="form-control" name="top-search" id="top-search" >
+                        <span class="input-group-addon add-icon-search" ng-click="searchDealPlace()">
+                            <i class="icon icon-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <!-- <form role="search" class="navbar-form-custom only-mobile-screen-mini" ng-submit="searchDealPlace()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" ng-model="localSearch" ng-change="changeText()" placeholder="{{'Search deal, place'|translate}}" class="form-control" name="top-search" id="top-search" >
+                        <span class="input-group-btn"> <button class="btn btn-primary btn-danger"  ng-click="searchDealPlace()" type="button"><i class="icon icon-search only"></i></button></span>
+                    </div>
+                </div>
+            </form> -->
+        </div>        
+        <ul class="nav navbar-top-links navbar-right only-pc">
+            <li class="welcome">
+                <span>{{'Welcome to CLINGME BUSINESS'|translate}}</span>
+            </li>
+            <li class="dropdown notification-topbar" dropdown >
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" title="{{'Notification'|translate}}">
+                    <i class="icon icon-drum_notify"></i> <span class="label badge-clingme label-danger" ng-if="notification.count != 0">{{notification.count}}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-messages" >
+                    <li>
+                        <a ng-click="updateNotifyToRead()">
+                        <div class="dropdown-messages-box">
+                            <strong>{{'Notification'|translate}}</strong> 
+                            <small class="pull-right text-danger">{{'Read all' | translate}}</small>
+                        </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ng-repeat="item in notification.item">
+                        <div class="dropdown-messages-box navbar-notification navbar-notification-person" ng-if="item.notifyType == 1">
+                            <a ui-sref="profile" class="pull-left">
+                                <img alt="image" class="img-circle" ng-src="{{item.icon}}">
+                            </a>
+                            <div>
+                                <small class="pull-right">{{item.time}}</small>
+                                <strong>{{item.title}}</strong> {{'Comment' | translate}}<br>
+                                    <div star-rating rating-value="{{item.paramId3}}" max="5" ></div>
+                                    <br>
+                            </div>
+                        </div>
+                        <div class="dropdown-messages-box navbar-notification navbar-notification-notperson" ng-if="item.notifyType == 2" >
+                            <img alt="image" height="38px" width="38px" ng-src="{{item.icon}}">
+                            <span>{{item.title}}</span>
+                            <small class="pull-right">{{item.time}}</small>
+                        </div>
+                        <div class="dropdown-messages-box navbar-notification navbar-notification-notperson" ng-if="item.notifyType == 3">
+                            <img alt="image" height="38px" width="38px" ng-src="{{item.icon}}">
+                            <span>{{item.title}}</span>
+                            <small class="pull-right">{{item.time}}</small>
+                        </div>
+                        <div class="dropdown-messages-box navbar-notification navbar-notification-notperson" ng-if="item.notifyType == 4">
+                            <img alt="image" height="38px" width="38px" ng-src="{{item.icon}}">
+                            <span>{{item.title}}</span>
+                            <small class="pull-right">{{item.time}}</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text-center link-block">
+                        <a ui-sref="index.notification"><strong>{{'View all' | translate}} &gt; </strong></a></div>
+                    </li>
+                </ul>
+            </li>
+            <li class="btn-change-language">
+                <a href="" title="{{'Change language'|translate}}" ng-click="changeLanguage()">
+                    <i class="icon icon-change_language"></i>
+                </a>
+            </li>
+            <li class="logout logout-topbar">
+                <a href="" ng-click="logout()" title="{{'Logout'|translate}}">
+                    <i class="icon icon-sign_out"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="menu-on-mobile only-mobile">
+            <li class="dropdown dropdown-menu-mobile" dropdown>
+                <a class="dropdown-toggle count-info" href dropdown-toggle title="{{'Notification'|translate}}">
+                    <i class="icon icon-action"></i> <span class="label badge-clingme-mobile label-danger" ng-if="notification.count != 0">{{notification.count}}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-messages" >
+                    <li>
+                        <a ui-sref="index.notification" ng-click="updateNotifyToRead()">
+                        <div class="dropdown-messages-box">
+                            <span class="icon icon-drum_notify pull-left icon-mobile-top"></span>
+                            <strong>{{'Notification'|translate}}</strong> 
+                            <small class="pull-right text-danger">{{notification.count}}</small>
+                        </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a ng-click="changeLanguage()">
+                        <div class="dropdown-messages-box">
+                            <span class="icon icon-change_language pull-left icon-mobile-top"></span>
+                            <strong>{{'Change language'|translate}}</strong> 
+                        </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a ng-click="logout()">
+                        <div class="dropdown-messages-box">
+                            <span class="icon icon-sign_out pull-left icon-mobile-top"></span>
+                            <strong>{{'Logout'|translate}}</strong> 
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

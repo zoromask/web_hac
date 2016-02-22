@@ -1,0 +1,8 @@
+<div id="wrapper">
+    <div class="fixed_sidebar" ng-include="'app/components/common/navigation.html'" ng-swipe-disable-mouse ng-swipe-left="closeSideBar()"></div>
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}" scroll ng-swipe-disable-mouse resize ng-swipe-left="closeSideBar()" ng-swipe-right="openSideBar($event)">
+        <div ng-include="'app/components/common/topnavbar.html'"></div>
+        <div ui-view></div>
+        <div ng-include="'app/components/common/footer.html'"></div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="search_page" ng-init="initRegisterForm()">
+	<div class="login-form">
+		<div class="big_logo" ng-click="returnHomepage()"></div>
+		<div class="register-hint" style="word-wrap: break-word;">
+			<h5>{{'Registration owner information'|translate}}</h5>
+			<h3 ng-if="restaurant_register.length >40">{{restaurant_register.substring(0,40)}} ...</h3>
+			<h3 ng-if="restaurant_register.length <=40">{{restaurant_register.substring(0,40)}}</h3>
+
+		</div>
+		<div class="form_content">
+		<form role="form" name="signup_form" novalidate ng-submit="register()">
+			<input class="textfield_form_submit" type="text" ng-model="restaurant_register" name="restaurant_name" placeholder="{{'Restaurant name'|translate}}" maxlength="255" required/>
+			<div class="m-t-xs" ng-show="signup_form.restaurant_name.$invalid && signup_form.submitted">
+                <small class="text-danger-register" ng-show="signup_form.restaurant_name.$error">{{'Please input restaurant name'|translate}}</small>
+            </div>
+            <a ui-sref="homepage.login" class="register-other-login-btn">{{'register place with your account'|translate}}</a>
+            <div class="special_separator">
+            	<div class="horizon_separator"><div><span class="spacer"></span><h1>{{'or'|translate}}</h1><span class="spacer"></span></div></div>
+            </div>
+			<input class="textfield_form_submit" type="text" ng-model="phone_register" name="phone" placeholder="{{'Phone number to get verify code'|translate}}" required custom-validation validatetype="number" validatelen="11"/>
+			<div class="m-t-xs" ng-show="signup_form.phone.$invalid && signup_form.submitted">
+                <small class="text-danger-register" ng-show="signup_form.phone.$error">{{'Please input a valid phone number'|translate}}</small>
+            </div>
+			<input class="textfield_form_submit" type="email" ng-model="email_register" name="email" placeholder="{{'Email'|translate}}" maxlength="64" />
+			<div class="m-t-xs" ng-show="signup_form.email.$invalid && signup_form.submitted">
+                <small class="text-danger-register" ng-show="signup_form.email.$error">{{'Please input a valid email address'|translate}}</small>
+            </div>
+			<input class="btn_login register-place-button" type="submit" value="{{'Register with new account'|translate}}" />
+			<div class="agree_term_policy_text">
+				{{'term_policy_prefix'|translate}}
+				<a href="#">{{'term'|translate}}</a>
+				{{'term_policy_subfix'|translate}}
+			</div>
+		</form>
+		</div>
+	</div>
+</div>

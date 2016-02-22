@@ -1,0 +1,17 @@
+<div class="search_page">
+	<div class="search_form">
+		<div class="big_logo" ng-click="returnHomepage()"></div>
+		<div class="forgot-pass-form">
+			<div class="form_title">{{'Forgot your password'|translate}}</div>
+			<div class="form_content">
+			<form role="form" name="forgot_pass_form" novalidate ng-submit="sendCodeToPhoneNumber()">
+				<input class="textfield_form_submit" type="text" name="verify_code" ng-model="verify_code" placeholder="{{'Phone number/Email to get verify code'|translate}}" ng-keypress="$event.which === 13 && sendCodeToPhoneNumber()" custom-validation validatetype="emailphone" required/>
+				<div class="m-t-xs" ng-show="forgot_pass_form.verify_code.$invalid && forgot_pass_form.submitted">
+	                <small class="text-danger" ng-show="forgot_pass_form.verify_code.$error">Please input phone number</small>
+	            </div>
+				<input class="big_btn send" type="submit" value="{{'Send'|translate}}"/>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>

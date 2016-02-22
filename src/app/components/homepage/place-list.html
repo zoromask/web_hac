@@ -1,0 +1,97 @@
+<div class="place_wrapper" ng-init="search()">
+	<div class="small_logo" ng-click="returnHomepage()"></div>
+	<div class="top_links" ng-if="records_results.length != 0">
+		<a ui-sref="homepage.login" ng-show="isLoggedOut">
+			<span class="login_btn place-list-home">{{'Login' | translate}}</span>
+		</a>
+		<a ui-sref="index.account" ng-show="!isLoggedOut">
+			<span class="login_btn place-list-home">{{'Manager' | translate}}</span>
+		</a>
+	</div>
+	<div class="search_form_clone">
+		<input class="textfield_form_submit hint-places" ng-keyup="suggestPlace()" ng-keypress="$event.which === 13 && search()" type="text" ng-model="keyword" placeholder="{{'press your keywords'|translate}}" select-on-click/>
+		<input class="textfield_form_submit location-hint only-pc" id="place-city" ng-keypress="$event.which === 13 && search()" ng-model="selectedAddress" select-on-click>
+		<label class="clingme-select only-mobile">
+            <select class="form-control" ng-model="selectedAddress" ng-options="city.name for city in searchTag track by city.name">
+                <option value="">{{'city/province'|translate}}</option>
+            </select>
+        </label>
+		<button ng-if="records_results.length != 0"  class="submit_btn btn-find btn btn-search-list-place" ng-click="search()"> <span class="icon icon-search"></span> {{'Search'|translate}}</button>
+		<button ng-if="records_results.length == 0"  class="submit_btn btn-find btn btn-search-list-place" ng-click="search()"> <span class="icon icon-search"></span> {{'Search'|translate}}</button>
+	</div>
+	<div class="list_places_container" ng-if="records.length != 0">
+		<div class="keyword_result">{{"Result search" | translate}} <span>{{searching}}</span></div>
+		<div class="current_page">{{pagination.current}}/{{totalPage}} {{"Search" | translate}}</div>
+		<div style="clear:both;"></div>
+		<ul class="list_places">
+			<li dir-paginate="data in records | filter:q | itemsPerPage: recordsPerPage" total-items="totalRecords" current-page="pagination.current" class="block_place">
+				<div class="block_1">
+					<a href="#" class="thumb"><img ng-src="{{data.image}}"></a>
+					<div class="progress_container" ng-click="descriptionPerformanceIndex()">
+						{{data.activeText}}
+						<div class="progress progress-mini">
+				            <div style="width: {{data.activePoint*100}}%;" class="progress-bar"></div>
+				        </div>
+				  	</div>
+				  	<div style="clear:both;"></div>
+				</div>
+				<div class="block_2">
+					<a class="place_name" href="http://{{data.url}}" target="_blank">{{data.name}}</a>
+					<div class="custom_container">
+						<div class="rating_container">
+							<div star-rating rating-value='{{data.rate}}' max="5" ></div>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<p>{{data.address}}</p>
+					<div class="custom_container">
+						<div class="no_of_comment">bình luận ({{data.noOfComment}})</div>
+						<div class="phone_number"><i class="icon icon-phone green"></i> {{data.phone}}</div>
+					</div>
+				</div>
+				<div class="block_3">
+					<div class="progress_container">
+						<a class="tooltip-clingme" ng-click="descriptionPerformanceIndex()">
+							<div>{{data.activeText}}</div>
+							<div class="progress progress-mini">
+					            <div style="width: {{data.activePoint*100}}%;" class="progress-bar"></div>
+					        </div>
+				        </a>
+				  	</div>
+					<div class="managed_place" ng-show="data.status == 1" ng-click="my_place()">
+						<div class="label_managed">{{'Already management'|translate}}</div>
+					</div>
+					<div class="managed_place" ng-show="data.status == 0">
+						<input class="submit_btn" ng-click="registrationForThisPlace(data)" type="button" value="{{'My place'|translate}}" />
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+			</li>
+		</ul>
+		<div style="margin-left:20px;">{{'question_1'|translate}}</div>
+		<a class="btn-create-place-cutom custom-for-mobile" ui-sref="homepage.newplace"><span class="icon icon-add_place"></span><span class="text-add_place">  {{'add_new_place'|translate}}</span></a>
+		<dir-pagination-controls class="paging_toolbar" boundary-links="false" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+		<div class="horizontal_separator"></div>
+		<div class="note">
+			<div class="progress_container">
+				<div class="progress progress-mini">
+		            <div style="width: 50%;" class="progress-bar"></div>
+		        </div>
+				<small>{{'description_performance_index'|translate}}</small>
+				<div style="clear:both;"></div>
+		  	</div>
+		</div>
+  	</div>
+  	<div class="no_place_result" ng-if="records_results.length == 0">
+  		<div class="keyword_result">
+  			<p style="word-wrap: break-word;">Không tìm thấy <span>"{{searching}}"</span> trong hệ thống địa điểm Clingme.</br>
+  			Vui lòng kiểm tra lại từ khóa hoặc khu vực tìm kiếm.</p>
+  			<div style="clear:both;"></div>
+  		</div>
+  		<div class="no_result_btn_container">
+  			<a class="btn-create-place-cutom custom-for-mobile" ui-sref="homepage.newplace"><span class="icon icon-add_place"></span><span class="text-add_place">  {{'add_new_place'|translate}}</span></a>
+  			<div style="clear:both;"></div>
+  		</div>
+  		<div style="clear:both;"></div>
+  	</div>
+</div>

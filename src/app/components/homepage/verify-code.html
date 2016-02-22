@@ -1,0 +1,20 @@
+<div class="search_page">
+	<div class="login-form">
+		<div class="big_logo" ng-click="returnHomepage()"></div>
+		<div class="register-hint">
+			<h3>WELCOME TO CLINGME</h3>
+		</div>
+		<form name="verifyForm" class="form_content">
+			<input class="textfield_form_submit" type="text" name="code" ng-model="verifycode" placeholder="{{'Verify code'|translate}}" required ng-keypress="$event.which === 13 && confirmCode()" custom-validation validatetype="text-symbol" validatelen="6"/>
+
+			<div class="hotlink"><span>{{'Not have code yet'|translate}}?</span>
+				<timer id="countdowntimer" class="timeCountDown pull-right" interval="1000" countdown="31" timer-stopped>{{countdown}}</timer>
+				<a class="buttonReSend hidden pull-right" ng-click="resend()">{{'Resend'|translate}}</a>
+			</div>
+            <input class="btn_login" type="button" ng-click="confirmCode()" value="Xác nhận" />
+            <div role="alert">
+		    	<span class="error" ng-show="myForm.input.$error.required">Required!</span>
+		  	</div>
+		</form>
+	</div>
+</div>

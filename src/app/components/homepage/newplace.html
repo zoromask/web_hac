@@ -1,0 +1,90 @@
+<div class="search_page" ng-init="bindBusinessType()">
+	<div class="top_links">
+		<a ui-sref="homepage.login" ng-show="isLoggedOut">
+			<span class="login_btn">{{'Login' | translate}}</span>
+		</a>
+		<a ui-sref="index.account" ng-show="!isLoggedOut">
+			<span class="login_btn">{{'Manager' | translate}}</span>
+		</a>
+	</div>
+	<div class="search_form" style="{{hide_field_search}}">
+		<div class="big_logo" ng-click="returnHomepage()"></div>
+		<div class="newplace_form" style="{{hide_field_search}}">
+		<form role="form" name="newplace_form" novalidate ng-submit="next()">
+			<div class="form_title">{{'create_my_place'|translate}}</div>
+			<div class="form_content">
+				<label for="place_name">{{'Place name'|translate}}</label>
+				<input class="textfield_form_submit" type="text" id="place_name" name="place_name" ng-model="place_name" maxlength="255" required/>
+				<div class="m-t-xs" ng-show="newplace_form.place_name.$invalid && newplace_form.submitted">
+	                <small class="text-danger" ng-show="newplace_form.place_name.$error">{{'Please input restaurant name'|translate}}</small>
+	            </div>
+				<label for="address">{{'Address'|translate}}</label>
+				<input class="textfield_form_submit" type="text" id="address" name="address" ng-model="address" required maxlength="1000" />
+				<div class="m-t-xs" ng-show="newplace_form.address.$invalid && newplace_form.submitted">
+	                <small class="text-danger" ng-show="newplace_form.address.$error">{{'Please input address'|translate}}</small>
+	            </div>
+				<label for="business_type">{{'Type of business'|translate}}</label>
+				<div class="input-group custom-multi-select homepage" isteven-multi-select 
+	                output-model="selectedBusinessType" 
+	                input-model="availableBusinessTypes"
+	                item-label="pic name" 
+	                button-label="pic name"
+	                tick-property="selected"
+	                translation="localLang"
+	                max-labels="4"
+	                helper-elements="">
+	            </div>
+				<input class="big_btn" type="submit" value="{{'next'|translate}}"/>
+				<input class="big_btn cancel_btn" type="button" value="{{'Cancel'|translate}}" ui-sref="homepage.main" />
+				<div style="clear:both;"></div>
+			</div>
+		</form>
+		</div>
+	</div>
+	<div class="place_wrapper new-place" style="{{show_results}}">
+		<div class="big_logo" ng-click="returnHomepage()"></div>
+		<div class="list_places_container new-place-form" ng-show="records.length > 0">
+	  		<div class="new_place_note">
+	  			<p>{{'This place you create is maybe the one of list places below.'|translate}}</p>
+	  		</div>
+			<ul class="list_places">
+				<li dir-paginate="data in records | filter:q | itemsPerPage: recordsPerPage" total-items="totalRecords" current-page="pagination.current" class="block_place">
+					<div class="block_1">
+						<a href="#" class="thumb"><img ng-src="{{data.avatar}}"></a>
+					</div>
+					<div class="block_2">
+						<a class="place_name" href="#">{{data.name}}</a>
+						<div class="custom_container">
+							<div class="rating_container">
+								<div star-rating rating-value="data.rating" max="5" ></div>
+							</div>
+							<div class="progress_container">
+								<small>{{data.interested}}% năng động</small>
+								<div class="progress progress-mini">
+						            <div style="width: {{data.interested}}%;" class="progress-bar"></div>
+						        </div>
+						  	</div>
+							<div style="clear:both;"></div>
+						</div>
+						<p>{{data.address}}</p>
+						<div class="custom_container">
+							<div class="no_of_comment">{{'comment'|translate}} ({{data.no_of_comment}})</div>
+							<div class="phone_number">{{data.phone}}</div>
+						</div>
+					</div>
+					<div class="block_3">
+						<div class="managed_place" ng-show="data.managed == true">
+							<div class="label_managed">{{'is_managed'|translate}}</div>
+						</div>
+						<div class="managed_place" ng-show="data.managed == false">
+							<input class="submit_btn" type="button" value="{{'my_place'|translate}}" />
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+			</ul>
+			<a class="big_btn next_step_btn" ng-click="next_step_2()">{{'No, I want to continue'|translate}}</a>
+			<div style="clear:both;height:10px;"></div>
+	  	</div>
+	</div>
+</div>
