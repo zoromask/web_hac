@@ -22,7 +22,14 @@ angular.module('inspinia')
         }
 
 
-        $scope.changeLanguage = function(){
+        $scope.changeLanguage = function(lang){
+            /*if(lang == 'en_US'){
+                $translate.use('vi_VN');
+                $cookieStore.put('lang', 'vi_VN');
+            }else if(lang == 'vi_VN'){
+                $translate.use('en_US');
+                $cookieStore.put('lang', 'en_US');
+            }*/
             if($translate.use() == 'en_US'){
                 $translate.use('vi_VN');
                 $cookieStore.put('lang', 'vi_VN');
@@ -83,6 +90,20 @@ angular.module('inspinia')
                 node = node.offsetParent;
                 y += node.offsetTop;
             } return y;
+        }
+        $scope.showNavbarMobile = function(){
+            console.log(angular.element(".navbar-toggle").attr("show-navbar"));
+            if(angular.element(".navbar-toggle").attr("show-navbar") == "false"){
+                
+                angular.element(".navbar-toggle").attr("show-navbar", "true");
+                angular.element(".navbar-toggle").attr("aria-expanded", "true");
+                angular.element(".navbar-collapse").show();
+            }else if(angular.element(".navbar-toggle").attr("show-navbar") == "true"){
+                
+                angular.element(".navbar-toggle").attr("show-navbar", "false");
+                angular.element(".navbar-collapse").hide();
+            }
+            
         }
     })
 	.controller('ModalInstanceController', function ($modalInstance,$scope){

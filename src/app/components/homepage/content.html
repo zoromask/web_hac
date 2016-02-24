@@ -1,15 +1,17 @@
 <section id="page-top">
     <div class="navbar-wrapper">
             <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="navbar-header page-scroll">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
+                        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> -->
+                        <button type="button" class="navbar-toggle" data-target="#navbar" show-navbar="false" aria-controls="navbar" ng-click="showNavbarMobile()">
+                            
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">HAC Vietnam Technology JSC</a>
+                        <!-- <a class="navbar-brand" href="#" style="background-color: #17a185;"><img width="200" height="30"  src="assets/images/hac/logo.png"></a> -->
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -19,17 +21,26 @@
 
                             <li name="team" ng-class="{active : activeLink == 'team'}"><a class="page-scroll" ng-click="scrollTo('team')">{{'Map team'| translate}}</a></li>
 
-                            <li name="workflow" ng-class="{active : activeLink == 'workflow'}"><a class="page-scroll" ng-click="scrollTo('workflow')">{{'Workflow'| translate}}</a></li>
+                            <!-- <li name="workflow" ng-class="{active : activeLink == 'workflow'}"><a class="page-scroll" ng-click="scrollTo('workflow')">{{'Workflow'| translate}}</a></li>
 
-                            <li name="testimonial" ng-class="{active : activeLink == 'testimonial'}"><a class="page-scroll" ng-click="scrollTo('testimonial')">{{'Core Values'|translate}}</a></li>
+                            <li name="testimonial" ng-class="{active : activeLink == 'testimonial'}"><a class="page-scroll" ng-click="scrollTo('testimonial')">{{'Core Values'|translate}}</a></li> -->
 
                             <li name="coreservice" ng-class="{active : activeLink == 'coreservice'}"><a class="page-scroll" ng-click="scrollTo('coreservice')">{{'Core Services'| translate}}</a></li>
 
                             <!--<li><a class="page-scroll" href="#pricing">Đối tác</a></li>-->
                             <li name="contact" ng-class="{active : activeLink == 'contact'}"><a class="page-scroll" ng-click="scrollTo('contact')">{{'Contact' | translate}}</a></li>
 
-                            <li><a class="page-scroll" ng-click="changeLanguage('contact')">{{'Language' | translate}}</a></li>
-
+                            <li><a class="page-scroll" ng-click="changeLanguage('contact')">{{'Languageconvert' | translate}}</a></li>
+                            <!-- <li class="dropdown" dropdown>
+                                <a class="dropdown-toggle count-info" href dropdown-toggle>
+                                    {{'Languageconvert' | translate}}
+                                </a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs" >
+                                    <li ><a ng-click="changeLanguage('en_US')" style="color:#262626;">{{'Englishconvert' | translate}}</a></li>
+                                    <li><a ng-click="changeLanguage('vi_VN')" style="color:#262626;">{{'Vietnameseconvert' | translate}}</a></li>
+                                </ul>
+                            </li> -->
+                            
                         </ul>
                     </div>
                 </div>
@@ -50,9 +61,9 @@
                             we are HAC creative team</h1> -->
                         <h1>{{'block_h1_slide1_1'|translate}}<br/>{{'block_h1_slide1_2'|translate}}<br/>
                         {{'block_h1_slide1_3'|translate}}<br/>{{'block_h1_slide1_4'|translate}}<br/></h1>
-                        <p>
+                        <!-- <p>
                             <a class="btn btn-lg btn-primary" href="#" role="button">{{'Read more'|translate}}</a>
-                        </p>
+                        </p> -->
                     </div>
                     <div class="carousel-image wow zoomIn">
                         <img src="assets/images/hac/laptop_1.png" alt="laptop"/>
@@ -66,9 +77,9 @@
                 <div class="container">
                     <div class="carousel-caption blank">
                         <!-- <h1>We create meaningful <br/> interfaces that inspire.</h1> -->
-                        <h1>{{'block_h1_slide2_1'|translate}}<br/>{{'block_h1_slide2_2'|translate}}</h1>
+                        <h1 style="width: 50%;">{{'block_h1_slide2_1'|translate}}</h1>
                         <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p> -->
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">{{'Learn more'|translate}}</a></p>
+                        <!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">{{'Learn more'|translate}}</a></p> -->
                     </div>
                 </div>
                 <!-- Set background for slide in css -->
@@ -90,7 +101,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1>{{'Over 30+ projects completed'|translate}}<br/> <span class="navy"> {{'with many customers'|translate}}</span> </h1>
+            <h1>{{'Over 30+ projects completed'|translate}}<br/> <!-- <span class="navy"> {{'with many customers'|translate}}</span> --> </h1>
             <!-- <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p> -->
         </div>
     </div>
@@ -165,7 +176,16 @@
                     </div>
                 </span>
             </div>
-            <div class="project m-t-lg">
+            <div class="project m-t-lg" style="background-color: #B70101;">
+                <img src="assets/images/hac/humanrank_logo.png" width="150px" height="150px" class="img-responsive" alt="some image" style="top:20%; left: 23%;">
+                <span class="fade-description">
+                    <div class="project-content">
+                        <h2>{{'Human Rank'|translate}}</h2>
+                        <p>{{'humanrank_description'|translate}}</p>
+                    </div>
+                </span>
+            </div>
+            <!-- <div class="project m-t-lg">
                 <img src="assets/images/hac/bokehoachdautu.png" class="img-responsive" style="top:50%;" alt="some image">
                 <span class="fade-description">
                     <div class="project-content">
@@ -173,7 +193,7 @@
                         <p>{{'Electronic_descript'|translate}}</p>
                     </div>
                 </span>
-            </div>
+            </div> -->
         </div>
         <!-- <div class="col-md-6 text-center  wow zoomIn">
             <img src="assets/images/hac/perspective.png" alt="dashboard" class="img-responsive">
@@ -199,7 +219,7 @@
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
                 <h1>{{'Our_team'|translate}}</h1>
-                <p>{{'hac_description'|translate}}</p>
+                <!-- <p>{{'hac_description'|translate}}</p> -->
             </div>
         </div>
         <div class="row">
@@ -209,12 +229,12 @@
                     <h4><span class="navy">{{'ducanh_lastname'|translate}}</span> {{'ducanh_firstname'|translate}}</h4>
                     <p>{{'ducanh_description'|translate}}</p>
                     <ul class="list-inline social-icon">
-                        <li><a href="https://twitter.com/ducanh28487"><i class="fa fa-twitter"></i></a>
+                       <!--  <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="https://www.facebook.com/zmask1"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="https://www.linkedin.com/in/duc-anh-nguyen-31173552"><i class="fa fa-linkedin"></i></a>
-                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li> -->
+                        <!-- <li><a href="https://www.linkedin.com/in/duc-anh-nguyen-31173552"><i class="fa fa-linkedin"></i></a>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -225,8 +245,8 @@
                     <p>{{'cong_description'|translate}}</p>
                     <ul class="list-inline social-icon">
                         <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
-                        <li><a href="https://www.facebook.com/congvn"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/cong-dao-5b446741"><i class="fa fa-linkedin"></i></a></li>
+                        <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li> -->
+                        <!-- <li><a href="https://www.linkedin.com/in/cong-dao-5b446741"><i class="fa fa-linkedin"></i></a></li> -->
                     </ul>
                 </div>
             </div>
@@ -236,12 +256,12 @@
                     <h4><span class="navy">{{'tuananh_lastname'|translate}}</span> {{'tuananh_firstname'|translate}}</h4>
                     <p>{{'tuananh_description'|translate}}</p>
                     <ul class="list-inline social-icon">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <!-- <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -252,26 +272,45 @@
             </div>
         </div> -->
     </div>
-</section>
-
-<section id="workflow" class="timeline">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>{{'Our workflow'|translate}}</h1>
-                <p>{{'block_descript_hac'|translate}}</p>
+    <div style="background-color:#fff;">
+        <br>
+        <br>
+    </div>
+    <div class="testimonials">
+        
+        <div class="container " style="color:#fff;">
+            <div class="row">
+                <div class="col-lg-12 text-center wow zoomIn">
+                    <i class="fa fa-puzzle-piece big-icon"></i>
+                    <h1>
+                        {{'Core Values' | translate}}
+                    </h1>
+                    <div class="testimonials-text">
+                        <i>{{'corevalue_detail'|translate}}</i>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row features-block">
-            <div class="col-lg-12">
-                <img class="workflow-chart" src="assets/images/hac/Agile-Development-Diagram.jpg">
+    </div>
+    <div style="background-color:#fff;">
+        <div class="container timeline">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>{{'Our workflow'|translate}}</h1>
+                    <!-- <p>{{'block_descript_hac'|translate}}</p> -->
+                </div>
+            </div>
+            <div class="row features-block">
+                <div class="col-lg-12">
+                    <img class="workflow-chart" src="assets/images/hac/Agile-Development-Diagram.jpg">
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="testimonial" class="navy-section testimonials">
+<!-- <section id="testimonial" class="navy-section testimonials">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center wow zoomIn">
@@ -285,7 +324,24 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<!-- 
+<section id="workflow" class="timeline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>{{'Our workflow'|translate}}</h1> -->
+                <!-- <p>{{'block_descript_hac'|translate}}</p> -->
+            <!-- </div>
+        </div>
+        <div class="row features-block">
+            <div class="col-lg-12">
+                <img class="workflow-chart" src="assets/images/hac/Agile-Development-Diagram.jpg">
+            </div>
+        </div>
+    </div>
+</section> -->
 
 <section id="coreservice" class="features">
     <div class="container">
@@ -296,32 +352,36 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-5 col-lg-offset-1 features-text">
+            <div class="col-lg-5 col-lg-offset-1 features-text" style="min-height:145px;">
                 <h2>{{'Web app development'|translate}}</h2>
                 <i class="fa fa-desktop big-icon pull-right"></i>
                 <p>{{'block_web_app_development'|translate}}</p>
                 <!-- <small>Learn more</small> -->
             </div>
-            <div class="col-lg-5 features-text col-r">
-                <h2>{{'IOS Development'|translate}}</h2>
-                <i class="fa fa-apple big-icon pull-right"></i>
-                <p>{{'block_ios_development'|translate}}</p>
+            <div class="col-lg-5 features-text col-r" style="min-height:145px;">
+                <h2>{{'Mobile App Development'|translate}}</h2>
+                <i class="fa fa-mobile big-icon pull-right" style="font-size: 70px;margin-right: .2em; line-height: 0.6em;"></i>
+                <p>{{'block_mobile_development'|translate}}</p>
                 <!-- <small>Learn more</small> -->
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-5 col-lg-offset-1 features-text">
-                <h2>{{'Android Development'|translate}}</h2>
-                <i class="fa fa-android big-icon pull-right"></i>
-                <p>{{'block_android_development'|translate}}</p>
-                <!-- <small>Learn more</small> -->
-            </div>
-            <div class="col-lg-5 features-text col-r">
+             <div class="col-lg-5 col-lg-offset-1 features-text" style="min-height:145px;">
                 <h2>{{'Backend Development'|translate}}</h2>
-                <i class="fa fa-ioxhost big-icon pull-right"></i>
+                <i class="fa fa-database big-icon pull-right"></i>
                 <p>{{'block_backend_development'|translate}}</p>
                 <!-- <small>Learn more</small> -->
             </div>
+            <div class="col-lg-5 features-text col-r" style="min-height:145px;">
+                <h2>{{'Other Services'|translate}}</h2>
+                <i class="fa fa-gear big-icon pull-right"></i>
+                <p>{{'block_other_services'|translate}}</p>
+            </div>
+            <!-- <div class="col-lg-5 features-text col-r" style="min-height:145px;">
+                <h2>{{'Frontend Development'|translate}}</h2>
+                <i class="fa fa-ioxhost big-icon pull-right"></i>
+                <p>{{'block_frontend_development'|translate}}</p>
+            </div> -->
         </div>
         <!-- <div class="row">
             <div class="col-lg-5 col-lg-offset-1 features-text">
@@ -384,7 +444,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2016 HAC Vietnam Technology JSC</strong></p>
+                <p><strong>&copy; {{'block_copyright'|translate}}</strong></p>
             </div>
         </div>
     </div>
