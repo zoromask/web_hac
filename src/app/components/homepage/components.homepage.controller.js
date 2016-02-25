@@ -92,12 +92,13 @@ angular.module('inspinia')
             } return y;
         }
         $scope.showNavbarMobile = function(){
-            console.log(angular.element(".navbar-toggle").attr("show-navbar"));
             if(angular.element(".navbar-toggle").attr("show-navbar") == "false"){
-                
                 angular.element(".navbar-toggle").attr("show-navbar", "true");
                 angular.element(".navbar-toggle").attr("aria-expanded", "true");
+                angular.element(".navbar-collapse").css("visibility", "visible");
+                angular.element(".navbar-collapse").css("overflow", "auto");
                 angular.element(".navbar-collapse").show();
+
             }else if(angular.element(".navbar-toggle").attr("show-navbar") == "true"){
                 
                 angular.element(".navbar-toggle").attr("show-navbar", "false");
