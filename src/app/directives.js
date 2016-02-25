@@ -738,6 +738,15 @@ angular.module('inspinia')
             }
         };
     }])
+    .directive("imageCenterProject", function(){
+        return function(){
+            var leftValue = angular.element(".project-custom-mobile").width() - angular.element(".project-custom-mobile img").width();
+            leftValue = leftValue/2;
+            console.log(leftValue);
+            angular.element(".img-responsive").css("left", leftValue);
+        }
+        
+    })
     .directive("scrollForMobile", function ($window) {
         return function(scope, element, attrs) {
             var $element = angular.element(element);
